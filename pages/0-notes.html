@@ -1,0 +1,25 @@
+<!-- Notes
+*************************************************** -->
+<h2><a id="Notes" href="#Notes" class="anchor"># Notes</a></h2>
+
+<p class="note">Add new build system to build and run in <a href="https://www.sublimetext.com/">Sublime Text</a>.</p>
+<pre class="prettyprint lang-scala">
+{
+    "cmd": ["scala", "$file"],
+    "path": "$PATH:/usr/local/bin",
+    "file_regex": "^(.+):(\\d+): .+: (.+)",
+    "selector": "source.scala"
+}
+</pre>
+
+<p class="note">Execute code using Test object.</p>
+<pre class="prettyprint lang-scala">
+object Test {
+
+    // add variables here
+
+    def main(args: Array[String]) {
+        // add operation here
+    }
+}
+</pre>

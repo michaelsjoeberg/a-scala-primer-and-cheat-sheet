@@ -1,0 +1,322 @@
+<html>
+<head>
+    <title>A Scala Primer and Cheat Sheet. | Michael Sjoeberg</title>
+
+    <!-- Google Source Code Pro Font -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"> -->
+
+    <!-- Google Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Google Code Prettify CDN -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=scala"></script>
+</head>
+<body>
+
+<style>
+
+    body {
+        max-width           : 100%; 
+        /*font-family       : 'Source Code Pro', sans-serif;*/
+        font-family         : 'Roboto', sans-serif;
+        font-weight         : 400;
+        color               : #333;
+        padding             : 4em;
+        margin              : 0;
+    }
+
+    h1 {
+        margin-top          : 0.5em;
+        margin-bottom       : 0.5em; }
+
+    h2,
+    h3,
+    h4,
+    h5 {
+        margin-top          : 1.5em;
+        margin-bottom       : 0.5em;  }
+
+    p.note { margin-top: 2em; }
+
+    a { 
+        color               : #333;
+        text-decoration     : none; 
+    }
+    
+    a:hover,
+    a:hover:focus {
+        color               : #333;
+        text-decoration     : underline; 
+    }
+
+    li {
+        margin-bottom       : 0.5em;
+        padding-left        : 1em;
+    }
+
+    a.anchor { font-weight: 600; }
+
+    pre.prettyprint { 
+        max-width           : 100%; 
+        padding             : 1em;
+        white-space         : pre-wrap;
+    }
+
+    .prettyprint {
+        background          : #F4F4F4;
+        font-family         : Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+        border              : 0 !important;
+    }
+
+    .pln { color            : #333; }
+
+    /* Specify class=linenums on a pre to get line numbering */
+    ol.linenums {
+        margin-top          : 0;
+        margin-bottom       : 0;
+        color               : #CCC;
+    }
+
+    li.L0,
+    li.L1,
+    li.L2,
+    li.L3,
+    li.L4,
+    li.L5,
+    li.L6,
+    li.L7,
+    li.L8,
+    li.L9 {
+        padding-left        : 1em;
+        background-color    : #FFF;
+        list-style-type     : decimal;
+    }
+
+    @media screen {
+
+        /* string content */
+        .str { color: #D14; }
+
+        /* keyword */
+        .kwd { color: #333; }
+
+        /* comment */
+        .com { color: #998; }
+
+        /* type name */
+        .typ { color: #458; }
+
+        /* literal value */
+        .lit { color: #458; }
+
+        /* punctuation */
+        .pun { color: #333; }
+
+        /* lisp open bracket */
+        .opn { color: #333; }
+
+        /* lisp close bracket */
+        .clo { color: #333; }
+
+        /* markup tag name */
+        .tag { color: #000080; }
+
+        /* markup attribute name */
+        .atn { color: #008080; }
+
+        /* markup attribute value */
+        .atv { color: #d14; }
+
+        /* declaration */
+        .dec { color: #333; }
+
+        /* variable name */
+        .var { color: #008080; }
+
+        /* function name */
+        .fun { color: #900; }
+    }
+</style>
+
+<a href="https://michaelsjoeberg.com">Michael Sjoeberg</a>
+<h1>A Scala Primer and Cheat Sheet.</h1>
+
+<ul>
+    <li><a href="#Notes">Notes</a></li>
+    <li><a href="#Arithmetic-Operators">Arithmetic Operators</a></li>
+    <li><a href="#Variables">Variables</a></li>
+    <ul>
+        <li><a href="#Variables-String-Indexing">String Indexing</a></li>
+        <li><a href="#Variables-String-Operations">String Operations</a></li>
+    </ul>
+</ul>
+
+<!-- Notes
+*************************************************** -->
+<h2><a id="Notes" href="#Notes" class="anchor"># Notes</a></h2>
+
+<p class="note">Add new build system to build and run in <a href="https://www.sublimetext.com/">Sublime Text</a>.</p>
+<pre class="prettyprint lang-scala">
+{
+    "cmd": ["scala", "$file"],
+    "path": "$PATH:/usr/local/bin",
+    "file_regex": "^(.+):(\\d+): .+: (.+)",
+    "selector": "source.scala"
+}
+</pre>
+
+<p class="note">Execute code using Test object.</p>
+<pre class="prettyprint lang-scala">
+object Test {
+
+    // add variables here
+
+    def main(args: Array[String]) {
+        // add operation here
+    }
+}
+</pre>
+
+
+<!-- Arithmetic Operators 
+*************************************************** -->
+<h2><a id="Arithmetic-Operators" href="#Arithmetic-Operators" class="anchor"># Arithmetic Operators</a></h2>
+
+<pre class="prettyprint lang-scala">
+10 + 20                 // 30
+20 - 10                 // 10
+10 * 20                 // 200
+20 / 10                 // 2
+</pre>
+
+<p class="note">Automatic floating point conversion.</p>
+<pre class="prettyprint lang-scala">
+10.0 + (10 + 20)        // 40.0
+20.0 - (10 + 10)        // 0.0
+10.0 * (10 * 2)         // 200.0
+</pre>
+
+<p class="note">Common division error.</p>
+<pre class="prettyprint lang-scala">
+30 / 20                 // 1
+30.0 / 20.0             // 1.5
+</pre>
+
+<p class="note">Modulo, or the remainder.</p>
+<pre class="prettyprint lang-scala">
+12.5 % 10.0             // 2.5
+10.0 % 20.0             // 10.0
+</pre>
+
+<!-- Variables
+*************************************************** -->
+<h2><a id="Variables" href="#Variables" class="anchor"># Variables</a></h2>
+
+<p class="note">val is immutable.</p>
+<pre class="prettyprint lang-scala">
+val x: Int = 6
+val y: String = "String"
+val z: Double = 1.05
+</pre>
+
+<p class="note">var is mutable.</p>
+<pre class="prettyprint lang-scala">
+var a = x
+</pre>
+
+<pre class="prettyprint lang-scala">
+x, y, z, a                      // (6,String,1.05,6)
+</pre>
+
+<pre class="prettyprint lang-scala">
+x.getClass.getSimpleName        // int
+y.getClass.getSimpleName        // String
+z.getClass.getSimpleName        // double
+a.getClass.getSimpleName        // int
+</pre>
+
+<p class="note">Multiple assignments.</p>
+<pre class="prettyprint lang-scala">
+val (x, y, z, a) = (6, "String", 1.05, 6)
+</pre>
+
+<pre class="prettyprint lang-scala">
+x, y, z, a                      // (6,String,1.05,6)
+</pre>
+
+<p class="note">List assignments.</p>
+<pre class="prettyprint lang-scala">
+val List(d, t, v) = List(230, 45, 12)
+</pre>
+
+<pre class="prettyprint lang-scala">
+d, t, v                         // (230,45,12)
+</pre>
+
+<p class="note">String assignments.</p>
+<pre class="prettyprint lang-scala">
+val string: String = "100B"
+
+val Array(a, b, c, d) = string.toArray
+</pre>
+
+<pre class="prettyprint lang-scala">
+a, b, c, d                      // (1,0,0,B)
+</pre>
+
+<h3><a id="Variables-String-Indexing" href="#Variables-String-Indexing" class="anchor"># String Indexing</a></h3>
+<pre class="prettyprint lang-scala">
+val string: String = "proton"
+</pre>
+
+<pre class="prettyprint lang-scala">
+string.charAt(0)                // p
+string.slice(0,4)               // prot
+</pre>
+
+<p class="note">Indexing using length.</p>
+<pre class="prettyprint lang-scala">
+string.length                   // 6
+</pre>
+
+<pre class="prettyprint lang-scala">
+string.substring(0, string.length)                      // proton
+string.substring(string.length - 4, string.length)      // oton
+</pre>
+
+<h3><a id="Variables-String-Operations" href="#Variables-String-Operations" class="anchor"># String Operations</a></h3>
+<pre class="prettyprint lang-scala">
+"kilo" ++ "meter"                   // kilometer
+"A" * 4                             // AAAA
+</pre>
+
+<pre class="prettyprint lang-scala">
+val string: String = "proton neutron"
+</pre>
+
+<pre class="prettyprint lang-scala">
+string.capitalize                   // Proton neutron
+string.toUpperCase                  // PROTON NEUTRON
+string.toLowerCase                  // proton neutron
+</pre>
+
+<p class="note">Counting and finding letters in text.</p>
+<pre class="prettyprint lang-scala">
+string.count(_ == 'p')              // 1
+string.indexOf("t")                 // 3
+</pre>
+
+<p class="note">Removing whitespace from a string.</p>
+<pre class="prettyprint lang-scala">
+val string: String = "    some text    "
+</pre>
+
+<pre class="prettyprint lang-scala">
+string.trim                         // some text
+</pre>
+
+
+
+
+</body>
+</html>
