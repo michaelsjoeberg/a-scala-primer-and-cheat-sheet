@@ -168,6 +168,7 @@
     </ul>
     <li><a href="#Functions">Functions</a></li>
     <li><a href="#Classes">Classes</a></li>
+    <li><a href="#Files">Files</a></li>
 </ul>
 
 <!-- Notes
@@ -674,6 +675,48 @@ val virtual_money = new VirtualMoney(20, "DIS", "2018-12-31")
 
 <pre class="prettyprint lang-scala">
 println(virtual_money)                      // 20 DIS (use before 2018-12-31)
+</pre>
+
+<!-- Files
+*************************************************** -->
+<h2><a id="Files" href="#Files" class="anchor"># Files</a></h2>
+
+<p class="note">Read lines from a file.</p>
+<pre class="prettyprint lang-scala">
+import scala.io.Source
+</pre>
+
+<pre class="prettyprint lang-scala">
+val file = Source.fromFile("path/to/file")
+</pre>
+
+<pre class="prettyprint lang-scala">
+for (line <- file.getLines) {
+    // do something
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+file.close
+</pre>
+
+<p class="note">Write data to a text-file.</p>
+<pre class="prettyprint lang-scala">
+import java.io._
+</pre>
+
+<pre class="prettyprint lang-scala">
+val file = new File("path/to/file.txt")
+</pre>
+
+<pre class="prettyprint lang-scala">
+val buffer = new BufferedWriter(new FileWriter(file))
+
+buffer.write("Text.")
+</pre>
+
+<pre class="prettyprint lang-scala">
+buffer.close
 </pre>
 
 </body>
