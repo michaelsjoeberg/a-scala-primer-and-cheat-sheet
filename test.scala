@@ -1,8 +1,7 @@
-object Test {
-    // add variables here
+object Main {
+    // do something
 
     def main(args: Array[String]) {
-        // add operation here
-        
+        // do something
     }
 }

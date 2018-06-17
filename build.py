@@ -1,13 +1,13 @@
 import sys, os
 
 with open('header.html', 'r') as file:
-    header = file.read()
+    header = file.read().encode('utf-8')
 
 with open('content.html', 'r') as file:
-    content = file.read()
+    content = file.read().encode('utf-8')
 
 with open('footer.html', 'r') as file:
-    footer = file.read()
+    footer = file.read().encode('utf-8')
 
 # empty list to sort pages
 page_lst = []
@@ -26,6 +26,11 @@ with open('index.html', 'w') as index:
 
     # write to file
     for page in page_lst:
-        index.write(open('pages/' + page, 'r').read() + '\n\n')
+        with open('pages/' + page, 'r') as file:
+            try:
+                content = file.read().encode('utf-8')
+                index.write(content + '\n\n')
+            except:
+                pass
 
     index.write(footer)
