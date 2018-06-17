@@ -1,0 +1,60 @@
+<!-- Functions
+*************************************************** -->
+<h2><a id="Functions" href="#Functions" class="anchor"># Functions</a></h2>
+
+<pre class="prettyprint lang-scala">
+def function(): Boolean = {
+    // do something
+
+    return true
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+def add(a:Int, b:Int): Int = {
+    
+    return a + b
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+add(2, 3)                               // 5
+</pre>
+
+<p class="note">Default arguments.</p>
+<pre class="prettyprint lang-scala">
+def add(a:Int, b:Int = 3): Int = {
+    
+    return a + b
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+add(2)                                  // 5
+</pre>
+
+<p class="note">Multiple return values.</p>
+<pre class="prettyprint lang-scala">
+def add(a:Int, b:Int): (String, Int) = {
+    var result = a + b
+    
+    return ("OK", result)
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+val (value, result) = add(2, 3)         // (OK,5)
+</pre>
+
+<p class="note">Documentation (scaladoc)</p>
+<pre class="prettyprint lang-scala">
+/** Print the argument passed to function.
+ *
+ *  @param arg an argument
+ */
+def print(arg:String) = {
+    
+    // print argument
+    println(arg)
+}
+</pre>

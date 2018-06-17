@@ -1,0 +1,41 @@
+<!-- Conditionals
+*************************************************** -->
+<h2><a id="Conditionals" href="#Conditionals" class="anchor"># Conditionals</a></h2>
+
+<pre class="prettyprint lang-scala">
+val a: Double = 1.0
+val b: Double = 5.0
+</pre>
+
+<h3><a id="Conditionals-If-Else-Statements" href="#Conditionals-If-Else-Statements" class="anchor"># If-Else Statements</a></h3>
+
+<pre class="prettyprint lang-scala">
+if (a < 1.0) {
+    // do something
+}
+else if (a == 1.0) {
+    // do something
+}
+else {
+    // do something
+}
+</pre>
+
+<h3><a id="Conditionals-Logical-Operators" href="#Conditionals-Logical-Operators" class="anchor"># Logical Operators</a></h3>
+
+<pre class="prettyprint lang-scala">
+val T: Boolean = true
+val F: Boolean = false
+</pre>
+
+<pre class="prettyprint lang-scala">
+T || F                      // true
+F || (T && F)               // false
+!T                          // false
+!(!T)                       // true
+</pre>
+
+<pre class="prettyprint lang-scala">
+a == b                      // false
+a != b                      // true
+</pre>

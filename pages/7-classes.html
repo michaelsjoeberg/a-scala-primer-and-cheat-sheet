@@ -1,0 +1,41 @@
+<!-- Classes
+*************************************************** -->
+<h2><a id="Classes" href="#Classes" class="anchor"># Classes</a></h2>
+
+<pre class="prettyprint lang-scala">
+class Money(val a:Int, val c:String) {
+    var amount: Int = a
+    var currency: String = c
+    
+    override def toString = amount.toString ++ " " ++ currency
+}
+</pre>
+
+<p class="note">Create a new instance of class.</p>
+<pre class="prettyprint lang-scala">
+val money = new Money(220, "EUR")
+
+money.amount, money.currency                // (220,EUR)
+</pre>
+
+<pre class="prettyprint lang-scala">
+println(money)                              // 220 EUR
+</pre>
+
+<p class="note">Subclasses.</p>
+<pre class="prettyprint lang-scala">
+class VirtualMoney(override val a:Int, override val c:String, val d:String) extends Money(a, c) {
+
+    var date: String = d
+    
+    override def toString = amount.toString ++ " " ++ currency ++ " (use before " ++ date ++ ")"
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+val virtual_money = new VirtualMoney(20, "DIS", "2018-12-31")
+</pre>
+
+<pre class="prettyprint lang-scala">
+println(virtual_money)                      // 20 DIS (use before 2018-12-31)
+</pre>

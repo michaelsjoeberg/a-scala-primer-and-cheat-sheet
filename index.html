@@ -149,6 +149,25 @@
         <li><a href="#Variables-String-Indexing">String Indexing</a></li>
         <li><a href="#Variables-String-Operations">String Operations</a></li>
     </ul>
+    <li><a href="#Data-Structures">Data Structures</a></li>
+    <ul>
+        <li><a href="#Data-Structures-Lists">Lists</a></li>
+        <li><a href="#Data-Structures-Tuples">Tuples</a></li>
+        <li><a href="#Data-Structures-Maps">Maps</a></li>
+        <li><a href="#Data-Structures-Sets">Sets</a></li>
+    </ul>
+    <li><a href="#Conditionals">Conditionals</a></li>
+    <ul>
+        <li><a href="#Conditionals-If-Else-Statements">If-Else Statements</a></li>
+        <li><a href="#Conditionals-Logical-Operators">Logical Operators</a></li>
+    </ul>
+    <li><a href="#Loops">Loops</a></li>
+    <ul>
+        <li><a href="#Loops-For">For</a></li>
+        <li><a href="#Loops-While">While</a></li>
+    </ul>
+    <li><a href="#Functions">Functions</a></li>
+    <li><a href="#Classes">Classes</a></li>
 </ul>
 
 <!-- Notes
@@ -176,7 +195,6 @@ object Test {
     }
 }
 </pre>
-
 
 <!-- Arithmetic Operators 
 *************************************************** -->
@@ -315,8 +333,348 @@ val string: String = "    some text    "
 string.trim                         // some text
 </pre>
 
+<!-- Data Structures
+*************************************************** -->
+<h2><a id="Data-Structures" href="#Data-Structures" class="anchor"># Data Structures</a></h2>
 
+<h3><a id="Data-Structures-Lists" href="#Data-Structures-Lists" class="anchor"># Lists</a></h3>
 
+<p class="note">Lists are immutable.</p>
+<pre class="prettyprint lang-scala">
+val list_one: List[String] = List("Alpha", "Beta")
+val list_two: List[Any] = List(200, -2, List(1.0, 0.0))
+</pre>
+
+<pre class="prettyprint lang-scala">
+val list_range: List[Int] = List.range(1, 10)
+</pre>
+
+<p class="note">Concatenate lists.</p>
+<pre class="prettyprint lang-scala">
+val list_all = list_one ++ list_two
+</pre>
+
+<pre class="prettyprint lang-scala">
+list_all                            // List(Alpha, Beta, 200, -2, List(1.0, 0.0))
+</pre>
+
+<p class="note">Create list with item added to an existing list.</p>
+<pre class="prettyprint lang-scala">
+val list_one_append = "Gamma"  :: list_one
+</pre>
+
+<pre class="prettyprint lang-scala">
+list_one_append                     // List(Gamma, Alpha, Beta)
+</pre>
+
+<p class="note">List operations.</p>
+<pre class="prettyprint lang-scala">
+list_one_append.length              // 3
+list_one_append.sorted              // List(Alpha, Beta, Gamma)
+list_two.head                       // 200
+list_two.last                       // List(1.0, 0.0)
+</pre>
+
+<pre class="prettyprint lang-scala">
+list_range.filter(_ > 5)            // List(6, 7, 8, 9)
+</pre>
+
+<p class="note">Create list from a string.</p>
+<pre class="prettyprint lang-scala">
+val list_char: List[Char] = ("100B").toList
+</pre>
+
+<pre class="prettyprint lang-scala">
+list_char                           // List(1, 0, 0, B)
+</pre>
+
+<h3><a id="Data-Structures-Tuples" href="#Data-Structures-Tuples" class="anchor"># Tuples</a></h3>
+
+<p class="note">Tuples are immutable.</p>
+<pre class="prettyprint lang-scala">
+val tuple_one = (1.0, "String", 4)
+val tuple_two = ("Alpha", "Bravo", (1, 0))
+</pre>
+
+<pre class="prettyprint lang-scala">
+tuple_one._2                        // String
+tuple_two._3._2                     // 0
+</pre>
+
+<p class="note">Assign each value in tuple to variable, alse seen in <a href="#Variables" class="anchor">Variables</a>.</p>
+<pre class="prettyprint lang-scala">
+val (first, second, third) = ("Alpha", "Beta", "Gamma")
+</pre>
+
+<pre class="prettyprint lang-scala">
+first                               // Alpha
+second                              // Beta
+third                               // Gamma
+</pre>
+
+<h3><a id="Data-Structures-Maps" href="#Data-Structures-Maps" class="anchor"># Maps</a></h3>
+
+<p class="note">Maps, or hash table, has key:value pairs and are immutable.</p>
+<pre class="prettyprint lang-scala">
+val map_any = Map("Adam" -> List("adam@email.com", 2445055),
+                  "Bard" -> "bard@email.com" )
+</pre>
+
+<pre class="prettyprint lang-scala">
+map_any("Adam")                                     // List(adam@email.com, 2445055)
+</pre>
+
+<pre class="prettyprint lang-scala">
+map_any.contains("Bard")                            // true
+map_any.exists(_ == "Bard" -> "bard@email.com")     // true
+</pre>
+
+<p class="note">Mutable maps.</p>
+<pre class="prettyprint lang-scala">
+val map_mutable = scala.collection.mutable.Map[String, Int]()
+</pre>
+
+<pre class="prettyprint lang-scala">
+map_mutable += ("Alpha" -> 1, "Beta" -> 2)          // Map(Beta -> 2, Alpha -> 1)
+map_mutable -= "Beta"                               // Map(Alpha -> 1)
+map_mutable("Alpha") = 100                          // Map(Alpha -> 100)
+</pre>
+
+<h3><a id="Data-Structures-Sets" href="#Data-Structures-Sets" class="anchor"># Sets</a></h3>
+
+<p class="note">Sets are immutable.</p>
+<pre class="prettyprint lang-scala">
+val set_numbers: Set[Int] = Set(1, 3, 5, 7, 9)
+</pre>
+
+<pre class="prettyprint lang-scala">
+set_numbers.contains(3)                             // true
+set_numbers.contains(2)                             // false
+</pre>
+
+<p class="note">Mutable sets.</p>
+<pre class="prettyprint lang-scala">
+val set_mutable_one = scala.collection.mutable.Set(1, 3, 5)
+val set_mutable_two = scala.collection.mutable.Set(5, 7, 9)
+</pre>
+
+<pre class="prettyprint lang-scala">
+set_mutable_two += 11                               // Set(9, 5, 7, 11)
+set_mutable_two -= 11                               // Set(9, 5, 7)
+</pre>
+
+<p class="note">Set operations.</p>
+<pre class="prettyprint lang-scala">
+val A = set_mutable_one.clone
+val B = set_mutable_two.clone
+</pre>
+
+<pre class="prettyprint lang-scala">
+A | B                                               // Set(9, 1, 5, 3, 7)
+A & B                                               // Set(5)
+A &~ B                                              // Set(1, 3)
+</pre>
+
+<pre class="prettyprint lang-scala">
+A union B                                           // Set(9, 1, 5, 3, 7)
+A intersect B                                       // Set(5)
+A diff B                                            // Set(1, 3)
+</pre>
+
+<pre class="prettyprint lang-scala">
+A subsetOf B                                        // false
+</pre>
+
+<!-- Conditionals
+*************************************************** -->
+<h2><a id="Conditionals" href="#Conditionals" class="anchor"># Conditionals</a></h2>
+
+<pre class="prettyprint lang-scala">
+val a: Double = 1.0
+val b: Double = 5.0
+</pre>
+
+<h3><a id="Conditionals-If-Else-Statements" href="#Conditionals-If-Else-Statements" class="anchor"># If-Else Statements</a></h3>
+
+<pre class="prettyprint lang-scala">
+if (a < 1.0) {
+    // do something
+}
+else if (a == 1.0) {
+    // do something
+}
+else {
+    // do something
+}
+</pre>
+
+<h3><a id="Conditionals-Logical-Operators" href="#Conditionals-Logical-Operators" class="anchor"># Logical Operators</a></h3>
+
+<pre class="prettyprint lang-scala">
+val T: Boolean = true
+val F: Boolean = false
+</pre>
+
+<pre class="prettyprint lang-scala">
+T || F                      // true
+F || (T && F)               // false
+!T                          // false
+!(!T)                       // true
+</pre>
+
+<pre class="prettyprint lang-scala">
+a == b                      // false
+a != b                      // true
+</pre>
+
+<!-- Loops
+*************************************************** -->
+<h2><a id="Loops" href="#Loops" class="anchor"># Loops</a></h2>
+
+<pre class="prettyprint lang-scala">
+val numbers: List[Int] = List(1, 2, 3, 4)
+val a: Int = 0
+val b: Int = 5
+</pre>
+
+<h3><a id="Loops-For" href="#Loops-For" class="anchor"># For</a></h3>
+
+<pre class="prettyprint lang-scala">
+for (number <- numbers) {
+    // do something
+}
+</pre>
+
+<p class="note">Nested for loops.</p>
+<pre class="prettyprint lang-scala">
+for (i <- List.range(1, 5)) {
+    for (j <- List.range(1, 5)) {
+        // do something
+    }
+}
+</pre>
+
+<p class="note">Using for loops and Maps.</p>
+<pre class="prettyprint lang-scala">
+val map: Map[String, Int] = Map("Alpha" -> 1, "Beta" -> 2)
+</pre>
+
+<pre class="prettyprint lang-scala">
+for ((k, v) <- map) {
+    println(k, v)                       // (Alpha,1) (Beta,2)
+}
+</pre>
+
+<h3><a id="Loops-While" href="#Loops-While" class="anchor"># While</a></h3>
+
+<pre class="prettyprint lang-scala">
+while (a < b) {
+    // do something
+}
+</pre>
+
+<!-- Functions
+*************************************************** -->
+<h2><a id="Functions" href="#Functions" class="anchor"># Functions</a></h2>
+
+<pre class="prettyprint lang-scala">
+def function(): Boolean = {
+    // do something
+
+    return true
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+def add(a:Int, b:Int): Int = {
+    
+    return a + b
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+add(2, 3)                               // 5
+</pre>
+
+<p class="note">Default arguments.</p>
+<pre class="prettyprint lang-scala">
+def add(a:Int, b:Int = 3): Int = {
+    
+    return a + b
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+add(2)                                  // 5
+</pre>
+
+<p class="note">Multiple return values.</p>
+<pre class="prettyprint lang-scala">
+def add(a:Int, b:Int): (String, Int) = {
+    var result = a + b
+    
+    return ("OK", result)
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+val (value, result) = add(2, 3)         // (OK,5)
+</pre>
+
+<p class="note">Documentation (scaladoc)</p>
+<pre class="prettyprint lang-scala">
+/** Print the argument passed to function.
+ *
+ *  @param arg an argument
+ */
+def print(arg:String) = {
+    
+    // print argument
+    println(arg)
+}
+</pre>
+
+<!-- Classes
+*************************************************** -->
+<h2><a id="Classes" href="#Classes" class="anchor"># Classes</a></h2>
+
+<pre class="prettyprint lang-scala">
+class Money(val a:Int, val c:String) {
+    var amount: Int = a
+    var currency: String = c
+    
+    override def toString = amount.toString ++ " " ++ currency
+}
+</pre>
+
+<p class="note">Create a new instance of class.</p>
+<pre class="prettyprint lang-scala">
+val money = new Money(220, "EUR")
+
+money.amount, money.currency                // (220,EUR)
+</pre>
+
+<pre class="prettyprint lang-scala">
+println(money)                              // 220 EUR
+</pre>
+
+<p class="note">Subclasses.</p>
+<pre class="prettyprint lang-scala">
+class VirtualMoney(override val a:Int, override val c:String, val d:String) extends Money(a, c) {
+
+    var date: String = d
+    
+    override def toString = amount.toString ++ " " ++ currency ++ " (use before " ++ date ++ ")"
+}
+</pre>
+
+<pre class="prettyprint lang-scala">
+val virtual_money = new VirtualMoney(20, "DIS", "2018-12-31")
+</pre>
+
+<pre class="prettyprint lang-scala">
+println(virtual_money)                      // 20 DIS (use before 2018-12-31)
+</pre>
 
 </body>
 </html>
