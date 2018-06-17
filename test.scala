@@ -3,5 +3,6 @@ object Main {
 
     def main(args: Array[String]) {
         // do something
+        
     }
 }

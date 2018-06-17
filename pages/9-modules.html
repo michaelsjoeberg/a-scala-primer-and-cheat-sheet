@@ -1,0 +1,72 @@
+<!-- Modules
+*************************************************** -->
+<h2><a id="Modules" href="#Modules" class="anchor"># Modules</a></h2>
+
+<h3><a id="Modules-Calendar" href="#Modules-Calendar" class="anchor"># Calendar</a></h3>
+
+<pre class="prettyprint lang-scala">
+import java.util.Calendar
+import java.text.SimpleDateFormat
+</pre>
+
+<pre class="prettyprint lang-scala">
+val now = Calendar.getInstance.getTime      // Sun Jun 17 19:18:49 CEST 2018
+</pre>
+
+<p class="note">Date formats.</p>
+<pre class="prettyprint lang-scala">
+val year = new SimpleDateFormat("yyyy")
+val month = new SimpleDateFormat("M")
+val day = new SimpleDateFormat("d")
+val hour = new SimpleDateFormat("H")
+val minute = new SimpleDateFormat("m")
+</pre>
+
+<pre class="prettyprint lang-scala">
+year.format(now)                            // 2018
+month.format(now)                           // 6
+day.format(now)                             // 17
+hour.format(now)                            // 19
+minute.format(now)                          // 18
+</pre>
+
+<h3><a id="Modules-Math" href="#Modules-Math" class="anchor"># Math</a></h3>
+
+<pre class="prettyprint lang-scala">
+import scala.math._
+</pre>
+
+<pre class="prettyprint lang-scala">
+scala.math.Pi                               // 3.141592653589793
+scala.math.E                                // 2.718281828459045
+</pre>
+
+<p class="note">Numerical operations, more at <a href="https://www.scala-lang.org/api/2.12.3/scala/math/index.html">https://www.scala-lang.org/api/2.12.3/scala/math/index.html</a>.</p>
+<pre class="prettyprint lang-scala">
+scala.math.abs(-20)                         // 20
+</pre>
+
+<pre class="prettyprint lang-scala">
+scala.math.pow(2, 3)                        // 8.0
+scala.math.floor(2.945)                     // 2.0
+scala.math.exp(1)                           // 2.718281828459045
+scala.math.sqrt(16)                         // 4.0
+</pre>
+
+<pre class="prettyprint lang-scala">
+scala.math.sin(4 * math.Pi / 180)           // 0.0697564737441253
+</pre>
+
+<p class="note">Rounding values.</p>
+<pre class="prettyprint lang-scala">
+scala.math.round(2.945)                     // 3
+scala.math.round(2.495)                     // 2
+</pre>
+
+<pre class="prettyprint lang-scala">
+scala.math.rint(2.945 * 100) / 100          // 2.94
+</pre>
+
+
+
+
