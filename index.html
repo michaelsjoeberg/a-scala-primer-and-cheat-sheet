@@ -188,12 +188,26 @@
 <p class="note">Execute code using Test object.</p>
 <pre class="prettyprint lang-scala">
 object Test {
-
     // add variables here
 
     def main(args: Array[String]) {
         // add operation here
     }
+}
+</pre>
+
+<p class="note">Handle exceptions.</p>
+<pre class="prettyprint lang-scala">
+try {
+    // do something
+}
+catch {
+    case zero: ArithmeticException => println("This is an arithmetic error: " + zero)
+
+    case e: Throwable => println("Error: " + e)
+}
+finally {
+    // do something
 }
 </pre>
 
