@@ -2,12 +2,12 @@
 *************************************************** -->
 <h2><a id="Conditionals" href="#Conditionals" class="anchor"># Conditionals</a></h2>
 
+<h3><a id="Conditionals-If-Else-Statements" href="#Conditionals-If-Else-Statements" class="anchor"># If-Else Statements</a></h3>
+
 <pre class="prettyprint lang-scala">
 val a: Double = 1.0
 val b: Double = 5.0
 </pre>
-
-<h3><a id="Conditionals-If-Else-Statements" href="#Conditionals-If-Else-Statements" class="anchor"># If-Else Statements</a></h3>
 
 <pre class="prettyprint lang-scala">
 if (a < 1.0) {
@@ -30,12 +30,12 @@ val F: Boolean = false
 
 <pre class="prettyprint lang-scala">
 T || F                      // true
-F || (T && F)               // false
+T && (T && F)               // false
 !T                          // false
 !(!T)                       // true
 </pre>
 
 <pre class="prettyprint lang-scala">
-a == b                      // false
-a != b                      // true
+1 == 2                      // false
+1 != 2                      // true
 </pre>

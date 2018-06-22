@@ -2,13 +2,10 @@
 *************************************************** -->
 <h2><a id="Loops" href="#Loops" class="anchor"># Loops</a></h2>
 
-<pre class="prettyprint lang-scala">
-val numbers: List[Int] = List(1, 2, 3, 4)
-val a: Int = 0
-val b: Int = 5
-</pre>
-
 <h3><a id="Loops-For" href="#Loops-For" class="anchor"># For</a></h3>
+<pre class="prettyprint lang-scala">
+val numbers: List[Int] = List(1, 2, 3, 4)       // List(1, 2, 3, 4)
+</pre>
 
 <pre class="prettyprint lang-scala">
 for (number <- numbers) {
@@ -25,7 +22,7 @@ for (i <- List.range(1, 5)) {
 }
 </pre>
 
-<p class="note">Using for loops and Maps.</p>
+<p class="note">Using for loops and maps.</p>
 <pre class="prettyprint lang-scala">
 val map: Map[String, Int] = Map("Alpha" -> 1, "Beta" -> 2)
 </pre>
@@ -37,9 +34,15 @@ for ((k, v) <- map) {
 </pre>
 
 <h3><a id="Loops-While" href="#Loops-While" class="anchor"># While</a></h3>
+<pre class="prettyprint lang-scala">
+var a = 0
+var b = 5
+</pre>
 
 <pre class="prettyprint lang-scala">
 while (a < b) {
     // do something
+
+    a += 1
 }
 </pre>

@@ -191,8 +191,8 @@ object Main {
 }
 </pre>
 
-<p>Compile with: <strong>$ scalac filename.scala</strong></p>
-<p>Run with: <strong>$ scala filename</strong></p>
+<p>Compile with: <strong>$ scalac filename.scala</strong>.</p>
+<p>Run with: <strong>$ scala filename</strong>.</p>
 
 <p class="note">Handle exceptions.</p>
 <pre class="prettyprint lang-scala">
@@ -200,16 +200,16 @@ try {
     // do something
 }
 catch {
-    case zero: ArithmeticException => println("This is an arithmetic error: " + zero)
+    case a: ArithmeticException => println("This is an arithmetic error: " + a)
 
-    case e: Throwable => println("Error: " + e)
+    case b: Throwable => println("Error: " + b)
 }
 finally {
     // do something
 }
 </pre>
 
-<p class="note">Add build system to build and run in <a href="https://www.sublimetext.com/">Sublime Text</a>.</p>
+<p class="note">Add build system to compile and run with <a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a>.</p>
 <pre class="prettyprint lang-scala">
 {
     "cmd": ["scala", "$file"],
@@ -224,94 +224,87 @@ finally {
 <h2><a id="Arithmetic-Operators" href="#Arithmetic-Operators" class="anchor"># Arithmetic Operators</a></h2>
 
 <pre class="prettyprint lang-scala">
-10 + 20                 // 30
-20 - 10                 // 10
-10 * 20                 // 200
-20 / 10                 // 2
+10 + 20                     // 30
+20 - 10                     // 10
+10 * 20                     // 200
+20 / 10                     // 2
 </pre>
 
 <p class="note">Automatic floating point conversion.</p>
 <pre class="prettyprint lang-scala">
-10.0 + (10 + 20)        // 40.0
-20.0 - (10 + 10)        // 0.0
-10.0 * (10 * 2)         // 200.0
+10.0 + (10 + 20)            // 40.0
+20.0 - (10 + 10)            // 0.0
+10.0 * (10 * 2)             // 200.0
 </pre>
 
 <p class="note">Common division error.</p>
 <pre class="prettyprint lang-scala">
-30 / 20                 // 1
-30.0 / 20.0             // 1.5
+30 / 20                     // 1
+30.0 / 20.0                 // 1.5
 </pre>
 
-<p class="note">Modulo, or the remainder.</p>
+<p class="note">Modulo, or remainder.</p>
 <pre class="prettyprint lang-scala">
-12.5 % 10.0             // 2.5
-10.0 % 20.0             // 10.0
+12.5 % 10.0                 // 2.5
+10.0 % 20.0                 // 10.0
 </pre>
 
 <p class="note">Built in numerical operations.</p>
 <pre class="prettyprint lang-scala">
-List(1, 2, 3, 4).sum                // 10
-List(1, 2, 3, 4).min                // 1
-List(1, 2, 3, 4).max                // 4
+List(1, 2, 3, 4).sum        // 10
+List(1, 2, 3, 4).min        // 1
+List(1, 2, 3, 4).max        // 4
 </pre>
 
-<p class="note">See <a href="#Modules-Math">Math</a> for more.</p>
+<p class="note">See <a href="#Modules-Math"><strong>Math</strong></a> for more.</p>
 
 <!-- Variables
 *************************************************** -->
 <h2><a id="Variables" href="#Variables" class="anchor"># Variables</a></h2>
 
-<p class="note">val is immutable.</p>
+<p class="note"><code class="prettyprint lang-scala">val</code> is immutable.</p>
 <pre class="prettyprint lang-scala">
 val x: Int = 6
 val y: String = "String"
 val z: Double = 1.05
 </pre>
 
-<p class="note">var is mutable.</p>
 <pre class="prettyprint lang-scala">
-var a = x
-</pre>
-
-<pre class="prettyprint lang-scala">
-x, y, z, a                      // (6,String,1.05,6)
+x, y, z                         // (6,String,1.05)
 </pre>
 
 <pre class="prettyprint lang-scala">
 x.getClass.getSimpleName        // int
 y.getClass.getSimpleName        // String
 z.getClass.getSimpleName        // double
-a.getClass.getSimpleName        // int
+</pre>
+
+<p class="note"><code class="prettyprint lang-scala">var</code> is mutable.</p>
+<pre class="prettyprint lang-scala">
+var a = x                       // 6
+</pre>
+
+<pre class="prettyprint lang-scala">
+a = a + 2                       // 8
 </pre>
 
 <p class="note">Multiple assignments.</p>
 <pre class="prettyprint lang-scala">
-val (x, y, z, a) = (6, "String", 1.05, 6)
-</pre>
-
-<pre class="prettyprint lang-scala">
-x, y, z, a                      // (6,String,1.05,6)
+val (x, y, z) = (6, "String", 1.05)     // (6,String,1.05)
 </pre>
 
 <p class="note">List assignments.</p>
 <pre class="prettyprint lang-scala">
-val List(d, t, v) = List(230, 45, 12)
-</pre>
-
-<pre class="prettyprint lang-scala">
-d, t, v                         // (230,45,12)
+val List(d, t, v) = List(230, 45, 12)   // (230,45,12)
 </pre>
 
 <p class="note">String assignments.</p>
 <pre class="prettyprint lang-scala">
 val string: String = "100B"
-
-val Array(a, b, c, d) = string.toArray
 </pre>
 
 <pre class="prettyprint lang-scala">
-a, b, c, d                      // (1,0,0,B)
+val Array(a, b, c, d) = string.toArray  // (1,0,0,B)
 </pre>
 
 <h3><a id="Variables-String-Indexing" href="#Variables-String-Indexing" class="anchor"># String Indexing</a></h3>
@@ -320,13 +313,13 @@ val string: String = "proton"
 </pre>
 
 <pre class="prettyprint lang-scala">
-string.charAt(0)                // p
-string.slice(0,4)               // prot
+string.charAt(0)                        // p
+string.slice(0,4)                       // prot
 </pre>
 
-<p class="note">Indexing using length.</p>
+<p class="note">Indexing using <code class="prettyprint lang-scala">length</code>.</p>
 <pre class="prettyprint lang-scala">
-string.length                   // 6
+string.length                                           // 6
 </pre>
 
 <pre class="prettyprint lang-scala">
@@ -336,8 +329,8 @@ string.substring(string.length - 4, string.length)      // oton
 
 <h3><a id="Variables-String-Operations" href="#Variables-String-Operations" class="anchor"># String Operations</a></h3>
 <pre class="prettyprint lang-scala">
-"kilo" ++ "meter"                   // kilometer
-"A" * 4                             // AAAA
+"kilo" ++ "meter"                       // kilometer
+"A" * 4                                 // AAAA
 </pre>
 
 <pre class="prettyprint lang-scala">
@@ -345,15 +338,15 @@ val string: String = "proton neutron"
 </pre>
 
 <pre class="prettyprint lang-scala">
-string.capitalize                   // Proton neutron
-string.toUpperCase                  // PROTON NEUTRON
-string.toLowerCase                  // proton neutron
+string.capitalize                       // Proton neutron
+string.toUpperCase                      // PROTON NEUTRON
+string.toLowerCase                      // proton neutron
 </pre>
 
 <p class="note">Counting and finding letters in text.</p>
 <pre class="prettyprint lang-scala">
-string.count(_ == 'p')              // 1
-string.indexOf("t")                 // 3
+string.count(_ == 'p')                  // 1
+string.indexOf("t")                     // 3
 </pre>
 
 <p class="note">Removing whitespace from a string.</p>
@@ -362,7 +355,7 @@ val string: String = "    some text    "
 </pre>
 
 <pre class="prettyprint lang-scala">
-string.trim                         // some text
+string.trim                             // some text
 </pre>
 
 <!-- Data Structures
@@ -373,80 +366,68 @@ string.trim                         // some text
 
 <p class="note">Lists are immutable.</p>
 <pre class="prettyprint lang-scala">
-val list_one: List[String] = List("Alpha", "Beta")
-val list_two: List[Any] = List(200, -2, List(1.0, 0.0))
+val list_one: List[String] = List("Alpha", "Beta")          // List(Alpha, Beta)
+val list_two: List[Any] = List(200, -2, List(1.0, 0.0))     // List(200, -2, List(1.0, 0.0))
 </pre>
 
 <pre class="prettyprint lang-scala">
-val list_range: List[Int] = List.range(1, 10)
+val list_range: List[Int] = List.range(1, 10)               // List(1, 2, 3, 4, 5, 6, 7, 8, 9)
 </pre>
 
 <p class="note">Concatenate lists.</p>
 <pre class="prettyprint lang-scala">
-val list_all = list_one ++ list_two
-</pre>
-
-<pre class="prettyprint lang-scala">
-list_all                            // List(Alpha, Beta, 200, -2, List(1.0, 0.0))
+val list_all = list_one ++ list_two             // List(Alpha, Beta, 200, -2, List(1.0, 0.0))
 </pre>
 
 <p class="note">Create list with item added to an existing list.</p>
 <pre class="prettyprint lang-scala">
-val list_one_append = "Gamma"  :: list_one
-</pre>
-
-<pre class="prettyprint lang-scala">
-list_one_append                     // List(Gamma, Alpha, Beta)
+val list_one_new = "Gamma"  :: list_one         // List(Gamma, Alpha, Beta)
 </pre>
 
 <p class="note">List operations.</p>
 <pre class="prettyprint lang-scala">
-list_one_append.length              // 3
-list_one_append.sorted              // List(Alpha, Beta, Gamma)
-list_two.head                       // 200
-list_two.last                       // List(1.0, 0.0)
+list_one_new.length                             // 3
+list_one_new.sorted                             // List(Alpha, Beta, Gamma)
+list_two.head                                   // 200
+list_two.last                                   // List(1.0, 0.0)
 </pre>
 
 <pre class="prettyprint lang-scala">
-list_range.filter(_ > 5)            // List(6, 7, 8, 9)
+list_range.filter(_ > 5)                        // List(6, 7, 8, 9)
 </pre>
 
 <p class="note">Create list from a string.</p>
 <pre class="prettyprint lang-scala">
-val list_char: List[Char] = ("100B").toList
-</pre>
-
-<pre class="prettyprint lang-scala">
-list_char                           // List(1, 0, 0, B)
+val list_char: List[Char] = ("100B").toList     // List(1, 0, 0, B)
 </pre>
 
 <h3><a id="Data-Structures-Tuples" href="#Data-Structures-Tuples" class="anchor"># Tuples</a></h3>
 
 <p class="note">Tuples are immutable.</p>
 <pre class="prettyprint lang-scala">
-val tuple_one = (1.0, "String", 4)
-val tuple_two = ("Alpha", "Bravo", (1, 0))
+val tuple_one = (1.0, "String", 4)              // (1.0,String,4)
+val tuple_two = ("Alpha", "Bravo", (1, 0))      // (Alpha,Bravo,(1,0))
 </pre>
 
 <pre class="prettyprint lang-scala">
-tuple_one._2                        // String
-tuple_two._3._2                     // 0
+tuple_one._2                                    // String
+tuple_two._3._2                                 // 0
 </pre>
 
-<p class="note">Assign each value in tuple to variable, also in <a href="#Variables" class="anchor">Variables</a>.</p>
+<p class="note">Assign each value in tuple to a variable, see <a href="#Variables" class="anchor">Variables</a> for more.</p>
 <pre class="prettyprint lang-scala">
 val (first, second, third) = ("Alpha", "Beta", "Gamma")
 </pre>
 
 <pre class="prettyprint lang-scala">
-first                               // Alpha
-second                              // Beta
-third                               // Gamma
+first                                   // Alpha
+second                                  // Beta
+third                                   // Gamma
 </pre>
 
 <h3><a id="Data-Structures-Maps" href="#Data-Structures-Maps" class="anchor"># Maps</a></h3>
 
-<p class="note">Maps, or hash table, has key:value pairs and are immutable.</p>
+<p class="note">Maps, or hash tables, with key:value pairs are immutable.</p>
 <pre class="prettyprint lang-scala">
 val map_any = Map("Adam" -> List("adam@email.com", 2445055),
                   "Bard" -> "bard@email.com" )
@@ -461,7 +442,7 @@ map_any.contains("Bard")                            // true
 map_any.exists(_ == "Bard" -> "bard@email.com")     // true
 </pre>
 
-<p class="note">Mutable maps.</p>
+<p class="note">Mutable map.</p>
 <pre class="prettyprint lang-scala">
 val map_mutable = scala.collection.mutable.Map[String, Int]()
 </pre>
@@ -469,6 +450,9 @@ val map_mutable = scala.collection.mutable.Map[String, Int]()
 <pre class="prettyprint lang-scala">
 map_mutable += ("Alpha" -> 1, "Beta" -> 2)          // Map(Beta -> 2, Alpha -> 1)
 map_mutable -= "Beta"                               // Map(Alpha -> 1)
+</pre>
+
+<pre class="prettyprint lang-scala">
 map_mutable("Alpha") = 100                          // Map(Alpha -> 100)
 </pre>
 
@@ -476,7 +460,7 @@ map_mutable("Alpha") = 100                          // Map(Alpha -> 100)
 
 <p class="note">Sets are immutable.</p>
 <pre class="prettyprint lang-scala">
-val set_numbers: Set[Int] = Set(1, 3, 5, 7, 9)
+val set_numbers: Set[Int] = Set(1, 3, 5, 7, 9)      // Set(5, 1, 9, 7, 3)
 </pre>
 
 <pre class="prettyprint lang-scala">
@@ -484,7 +468,7 @@ set_numbers.contains(3)                             // true
 set_numbers.contains(2)                             // false
 </pre>
 
-<p class="note">Mutable sets.</p>
+<p class="note">Mutable set.</p>
 <pre class="prettyprint lang-scala">
 val set_mutable_one = scala.collection.mutable.Set(1, 3, 5)
 val set_mutable_two = scala.collection.mutable.Set(5, 7, 9)
@@ -521,12 +505,12 @@ A subsetOf B                                        // false
 *************************************************** -->
 <h2><a id="Conditionals" href="#Conditionals" class="anchor"># Conditionals</a></h2>
 
+<h3><a id="Conditionals-If-Else-Statements" href="#Conditionals-If-Else-Statements" class="anchor"># If-Else Statements</a></h3>
+
 <pre class="prettyprint lang-scala">
 val a: Double = 1.0
 val b: Double = 5.0
 </pre>
-
-<h3><a id="Conditionals-If-Else-Statements" href="#Conditionals-If-Else-Statements" class="anchor"># If-Else Statements</a></h3>
 
 <pre class="prettyprint lang-scala">
 if (a < 1.0) {
@@ -549,27 +533,24 @@ val F: Boolean = false
 
 <pre class="prettyprint lang-scala">
 T || F                      // true
-F || (T && F)               // false
+T && (T && F)               // false
 !T                          // false
 !(!T)                       // true
 </pre>
 
 <pre class="prettyprint lang-scala">
-a == b                      // false
-a != b                      // true
+1 == 2                      // false
+1 != 2                      // true
 </pre>
 
 <!-- Loops
 *************************************************** -->
 <h2><a id="Loops" href="#Loops" class="anchor"># Loops</a></h2>
 
-<pre class="prettyprint lang-scala">
-val numbers: List[Int] = List(1, 2, 3, 4)
-val a: Int = 0
-val b: Int = 5
-</pre>
-
 <h3><a id="Loops-For" href="#Loops-For" class="anchor"># For</a></h3>
+<pre class="prettyprint lang-scala">
+val numbers: List[Int] = List(1, 2, 3, 4)       // List(1, 2, 3, 4)
+</pre>
 
 <pre class="prettyprint lang-scala">
 for (number <- numbers) {
@@ -586,7 +567,7 @@ for (i <- List.range(1, 5)) {
 }
 </pre>
 
-<p class="note">Using for loops and Maps.</p>
+<p class="note">Using for loops and maps.</p>
 <pre class="prettyprint lang-scala">
 val map: Map[String, Int] = Map("Alpha" -> 1, "Beta" -> 2)
 </pre>
@@ -598,10 +579,16 @@ for ((k, v) <- map) {
 </pre>
 
 <h3><a id="Loops-While" href="#Loops-While" class="anchor"># While</a></h3>
+<pre class="prettyprint lang-scala">
+var a = 0
+var b = 5
+</pre>
 
 <pre class="prettyprint lang-scala">
 while (a < b) {
     // do something
+
+    a += 1
 }
 </pre>
 
@@ -642,18 +629,18 @@ add(2)                                  // 5
 
 <p class="note">Multiple return values.</p>
 <pre class="prettyprint lang-scala">
-def add(a:Int, b:Int): (String, Int) = {
+def add(a:Int, b:Int): (Int, Int, Int) = {
     var result = a + b
     
-    return ("OK", result)
+    return (a, b, result)
 }
 </pre>
 
 <pre class="prettyprint lang-scala">
-val (value, result) = add(2, 3)         // (OK,5)
+val (a, b, result) = add(2, 3)          // (2,3,5)
 </pre>
 
-<p class="note">Documentation (scaladoc)</p>
+<p class="note">Documentation (scaladoc).</p>
 <pre class="prettyprint lang-scala">
 /** Print the argument passed to function.
  *

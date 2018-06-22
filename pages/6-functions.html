@@ -35,26 +35,25 @@ add(2)                                  // 5
 
 <p class="note">Multiple return values.</p>
 <pre class="prettyprint lang-scala">
-def add(a:Int, b:Int): (String, Int) = {
+def add(a:Int, b:Int): (Int, Int, Int) = {
     var result = a + b
     
-    return ("OK", result)
+    return (a, b, result)
 }
 </pre>
 
 <pre class="prettyprint lang-scala">
-val (value, result) = add(2, 3)         // (OK,5)
+val (a, b, result) = add(2, 3)          // (2,3,5)
 </pre>
 
-<p class="note">Documentation (scaladoc)</p>
+<p class="note">Documentation (scaladoc).</p>
 <pre class="prettyprint lang-scala">
-/** Print the argument passed to function.
+/** Documentation for function.
  *
  *  @param arg an argument
  */
-def print(arg:String) = {
-    
-    // print argument
-    println(arg)
+def function(arg:Any) = {    
+    // do something
+
 }
 </pre>

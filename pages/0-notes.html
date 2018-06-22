@@ -13,8 +13,8 @@ object Main {
 }
 </pre>
 
-<p>Compile with: <strong>$ scalac filename.scala</strong></p>
-<p>Run with: <strong>$ scala filename</strong></p>
+<p>Compile with: <strong>$ scalac filename.scala</strong>.</p>
+<p>Run with: <strong>$ scala filename</strong>.</p>
 
 <p class="note">Handle exceptions.</p>
 <pre class="prettyprint lang-scala">
@@ -22,16 +22,16 @@ try {
     // do something
 }
 catch {
-    case zero: ArithmeticException => println("This is an arithmetic error: " + zero)
+    case a: ArithmeticException => println("This is an arithmetic error: " + a)
 
-    case e: Throwable => println("Error: " + e)
+    case b: Throwable => println("Error: " + b)
 }
 finally {
     // do something
 }
 </pre>
 
-<p class="note">Add build system to build and run in <a href="https://www.sublimetext.com/">Sublime Text</a>.</p>
+<p class="note">Add build system to compile and run with <a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a>.</p>
 <pre class="prettyprint lang-scala">
 {
     "cmd": ["scala", "$file"],

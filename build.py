@@ -1,3 +1,6 @@
+# 
+# Run this to compile pages into index.html.
+#
 import sys, os
 
 with open('header.html', 'r') as file:
